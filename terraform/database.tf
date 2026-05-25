@@ -56,8 +56,8 @@ resource "aws_db_instance" "mysql_db" {
   storage_type       = "gp2"
 
   db_name  = "retailstore"
-  username = "admin"
-  password = "ChangeThisPassword123!"
+  username = var.db_username
+  password = var.db_password
 
   publicly_accessible = false
   multi_az            = false
@@ -88,8 +88,8 @@ resource "aws_db_instance" "postgres_db" {
   storage_type       = "gp2"
 
   db_name  = "retailstore"
-  username = "admin"
-  password = "ChangeThisPassword123!"
+ username = var.db_username
+password = var.db_password
 
   publicly_accessible = false
   multi_az            = false

@@ -13,3 +13,10 @@ output "region" {
 output "vpc_id" {
   value = aws_vpc.project_bedrock_vpc.id
 }
+output "mysql_endpoint" {
+  value = aws_db_instance.mysql_db.endpoint
+}
+
+output "postgres_endpoint" {
+  value = aws_db_instance.postgres_db.endpoint
+}
