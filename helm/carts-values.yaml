@@ -1,0 +1,9 @@
+env:
+  AWS_REGION: us-east-1
+
+app:
+  persistence:
+    provider: dynamodb
+
+    dynamodb:
+      tableName: project-bedrock-carts
