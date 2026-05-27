@@ -11,3 +11,4 @@ override.tf.json
 kubernetes/secrets.yaml
 *.pem
 *.key
+retail-store-sample-app/
