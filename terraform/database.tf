@@ -5,7 +5,8 @@ resource "aws_db_subnet_group" "project_bedrock_db_subnet_group" {
   subnet_ids = aws_subnet.private_subnets[*].id
 
   tags = {
-    Name = "project-bedrock-db-subnet-group"
+    Name    = "project-bedrock-db-subnet-group"
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -39,7 +40,8 @@ resource "aws_security_group" "rds_sg" {
   }
 
   tags = {
-    Name = "project-bedrock-rds-sg"
+    Name    = "project-bedrock-rds-sg"
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -71,7 +73,8 @@ resource "aws_db_instance" "mysql_db" {
   db_subnet_group_name = aws_db_subnet_group.project_bedrock_db_subnet_group.name
 
   tags = {
-    Name = "project-bedrock-mysql"
+    Name    = "project-bedrock-mysql"
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -103,6 +106,7 @@ resource "aws_db_instance" "postgres_db" {
   db_subnet_group_name = aws_db_subnet_group.project_bedrock_db_subnet_group.name
 
   tags = {
-    Name = "project-bedrock-postgres"
+    Name    = "project-bedrock-postgres"
+    Project = "karatu-2025-capstone"
   }
 }

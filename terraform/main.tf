@@ -6,7 +6,8 @@ resource "aws_vpc" "project_bedrock_vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    Name = "project-bedrock-vpc"
+    Name    = "project-bedrock-vpc"
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -14,7 +15,8 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.project_bedrock_vpc.id
 
   tags = {
-    Name = "project-bedrock-igw"
+    Name    = "project-bedrock-igw"
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -30,8 +32,11 @@ resource "aws_subnet" "public_subnets" {
     Name = "project-bedrock-public-${count.index + 1}"
 
     "kubernetes.io/role/elb" = "1"
+
+    Project = "karatu-2025-capstone"
   }
 }
+
 
 resource "aws_subnet" "private_subnets" {
   count = 2
@@ -44,6 +49,8 @@ resource "aws_subnet" "private_subnets" {
     Name = "project-bedrock-private-${count.index + 1}"
 
     "kubernetes.io/role/internal-elb" = "1"
+
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -51,7 +58,8 @@ resource "aws_eip" "nat_eip" {
   domain = "vpc"
 
   tags = {
-    Name = "project-bedrock-nat-eip"
+    Name    = "project-bedrock-nat-eip"
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -62,7 +70,8 @@ resource "aws_nat_gateway" "nat" {
   depends_on = [aws_internet_gateway.igw]
 
   tags = {
-    Name = "project-bedrock-nat"
+    Name    = "project-bedrock-nat"
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -75,7 +84,8 @@ resource "aws_route_table" "public_rt" {
   }
 
   tags = {
-    Name = "project-bedrock-public-rt"
+    Name    = "project-bedrock-public-rt"
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -88,7 +98,8 @@ resource "aws_route_table" "private_rt" {
   }
 
   tags = {
-    Name = "project-bedrock-private-rt"
+    Name    = "project-bedrock-private-rt"
+    Project = "karatu-2025-capstone"
   }
 }
 

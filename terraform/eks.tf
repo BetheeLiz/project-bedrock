@@ -24,7 +24,8 @@ resource "aws_eks_cluster" "project_bedrock_cluster" {
   ]
 
   tags = {
-    Name = "project-bedrock-cluster"
+    Name    = "project-bedrock-cluster"
+    Project = "karatu-2025-capstone"
   }
 }
 
@@ -52,6 +53,7 @@ resource "aws_eks_node_group" "project_bedrock_nodes" {
   ]
 
   tags = {
-    Name = "project-bedrock-node-group"
+    Name    = "project-bedrock-node-group"
+    Project = "karatu-2025-capstone"
   }
 }
